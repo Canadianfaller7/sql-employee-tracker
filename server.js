@@ -204,14 +204,14 @@ const showMainMenu = async () => {
   {
     type: 'list',
     message: 'Which employee would you like to update?',
-    name: 'empToUpdate',
+    name: 'selectedEmployee',
     choices: employeeManager,
     when: answers => (answers.userChoice === 'Update employee role')
   },
   {
     type: 'list',
     message: 'What is their new role?',
-    name: 'empRoleToUpdate',
+    name: 'employeeRoleUpdate',
     choices: roleList,
     when: answers => (answers.userChoice === 'Update employee role')
   }])
@@ -248,18 +248,18 @@ const showMainMenu = async () => {
         showTable = false;
         break;
       case 'Add an employee':
-        let newEmpFirst = answers.employeeFirst;
-        let newEmpLast = answers.employeeLast;
-        let newEmpRole = answers.empRole;
-        let newEmpManager = answers.empManager;
-        sql = updateQueries.newEmployee(newEmpFirst, newEmpLast, newEmpRole, newEmpManager);
-        console.log(`Added ${ newEmpFirst } ${ newEmpLast } to the database.`);
+        let firstName = answers.employeeFirst;
+        let lastName = answers.employeeLast;
+        let employeeRole = answers.empRole;
+        let employeeManager = answers.empManager;
+        sql = updateQueries.newEmployee(firstName, lastName, employeeRole, employeeManager);
+        console.log(`Added ${ firstName } ${ lastName } to the database.`);
         showTable = false;
         break;
       case 'Update employee role':
-        let empToUpdate = answers.empToUpdate;
-        let empRoleToUpdate = answers.empRoleToUpdate;
-        sql = updateQueries.updateEmployee(empToUpdate, empRoleToUpdate);
+        let selectedEmployee = answers.selectedEmployee;
+        let employeeRoleUpdate = answers.employeeRoleUpdate;
+        sql = updateQueries.updateEmployee(selectedEmployee, employeeRoleUpdate);
         console.log(`Updated user in database.`);
         showTable = false;
         break;

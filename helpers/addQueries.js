@@ -33,4 +33,10 @@ const updateEmployee = (empId, roleId) => {
   return sql;
 }
 
+// const deleteDepartment = departId => {
+//   let sql = `DELETE FROM departments WHERE id = ${departId}`
+
+//   return sql;
+// }
+
 module.exports = { newDepartment, newRole, newEmployee, updateEmployee }
