@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const viewQueries = require('./helpers/viewQueries');
 const updateQueries = require('./helpers/addQueries');
-require('dotenv').config()
+require('dotenv').config();
 
 const app = express();
 
@@ -17,7 +17,7 @@ const db = mysql.createConnection(
     host: 'localhost',
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
-    database: process.env.DB_NAME
+    database: process.env.DB_NAME,
   },
   console.log(`Connected to the employee_db database.`)
 );
